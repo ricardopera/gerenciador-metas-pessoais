@@ -1,0 +1,24 @@
+{
+  "name": "gerenciador-metas-pessoais",
+  "version": "1.0.0",
+  "description": "Aplicativo de gerenciamento de metas pessoais utilizando a stack MERN.",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "client": "npm start --prefix client",
+    "server": "nodemon server/server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [
+    "MERN",
+    "goals",
+    "personal management"
+  ],
+  "author": "Seu Nome",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^6.0.0",
+    "nodemon": "^2.0.0"
+  },
+  "devDependencies": {}
+}
