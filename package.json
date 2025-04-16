@@ -6,7 +6,7 @@
     "start": "cd server; node startup.js",
     "server": "cd server; nodemon server.js",
     "client": "cd client; npm start",
-    "build": "powershell -Command \"cd client; $env:CI='false'; $env:NODE_OPTIONS='--openssl-legacy-provider'; npx react-scripts build\"",
+    "build": "cd client && export CI=false && export NODE_OPTIONS=--openssl-legacy-provider && npx react-scripts build",
     "install-client": "cd client; npm install",
     "install-server": "cd server; npm install",
     "install-all": "npm install; npm run install-server; npm run install-client",
