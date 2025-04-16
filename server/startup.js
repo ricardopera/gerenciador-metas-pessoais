@@ -3,7 +3,7 @@ const { execSync } = require('child_process');
 const path = require('path');
 const fs = require('fs');
 
-console.log('Iniciando script de startup para Azure com Node.js 20+...');
+console.log('Iniciando script de startup para Azure com Node.js 18+...');
 
 try {
   // Verificar se as dependências já foram instaladas
@@ -14,7 +14,7 @@ try {
   if (needsInstall) {
     console.log('Instalando dependências do servidor...');
     try {
-      // Em versões mais recentes do Node.js, podemos usar a flag --omit=dev em vez de --production
+      // Em Node.js 18 podemos usar a flag --omit=dev em vez de --production
       execSync('npm install --omit=dev', { stdio: 'inherit' });
       console.log('Dependências instaladas com sucesso!');
     } catch (error) {
