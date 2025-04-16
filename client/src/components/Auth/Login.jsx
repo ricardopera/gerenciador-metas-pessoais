@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 
 const Login = () => {
@@ -11,7 +11,7 @@ const Login = () => {
 
     // Redirecionar se já estiver logado
     if (user) {
-        return <Redirect to="/dashboard" />;
+        return <Navigate to="/dashboard" replace />;
     }
 
     const handleSubmit = async (e) => {

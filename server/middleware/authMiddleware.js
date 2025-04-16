@@ -8,10 +8,11 @@ const protect = async (req, res, next) => {
             return res.status(401).json({ message: 'Acesso negado. Token não fornecido.' });
         }
 
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const decoded = jwt.verify(token, process.env.JWT_SECRET || 'default_secret_key');
         req.user = await User.findById(decoded.id).select('-password');
         next();
     } catch (error) {
+        console.log('Erro ao verificar token:', error);
         res.status(401).json({ message: 'Token inválido.' });
     }
 };

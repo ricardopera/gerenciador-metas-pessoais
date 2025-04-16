@@ -18,6 +18,15 @@ const goalSchema = new mongoose.Schema({
         ref: 'User',
         required: true,
     },
+    deadline: {
+        type: Date,
+        required: false,
+    },
+    priority: {
+        type: String,
+        enum: ['Baixa', 'Média', 'Alta'],
+        default: 'Média',
+    },
     createdAt: {
         type: Date,
         default: Date.now,

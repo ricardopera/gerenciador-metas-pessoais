@@ -28,11 +28,18 @@ const GoalForm = ({ editGoal = null }) => {
     setSuccess('');
 
     try {
+      // Criar um objeto com os dados do formulário para enviar
+      const goalData = {
+        ...formData,
+        // Se deadline estiver vazio, enviamos null, caso contrário enviamos o objeto Date
+        deadline: formData.deadline ? new Date(formData.deadline) : null
+      };
+
       if (editGoal) {
-        await updateGoal(editGoal._id, formData);
+        await updateGoal(editGoal._id, goalData);
         setSuccess('Meta atualizada com sucesso!');
       } else {
-        await addGoal(formData);
+        await addGoal(goalData);
         setFormData({
           title: '',
           description: '',

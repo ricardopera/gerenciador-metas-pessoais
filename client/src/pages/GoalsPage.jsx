@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import GoalForm from '../components/Goals/GoalForm';
 import GoalList from '../components/Goals/GoalList';
@@ -10,7 +10,7 @@ const GoalsPage = () => {
 
   // Redirecionar para login se o usuário não estiver autenticado
   if (!user) {
-    return <Redirect to="/login" />;
+    return <Navigate to="/login" replace />;
   }
 
   const toggleForm = () => {
