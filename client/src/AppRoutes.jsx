@@ -1,8 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from './context/AuthContext';
-import Header from './components/Layout/Header';
-import Navigation from './components/Layout/Navigation';
+import Layout from './components/Layout/Layout';
 import HomePage from './pages/HomePage';
 import GoalsPage from './pages/GoalsPage';
 import ProfilePage from './pages/ProfilePage';
@@ -32,9 +31,7 @@ const AppRoutes = () => {
   }, [setupAuthHelpers, navigate]);
 
   return (
-    <>
-      <Header />
-      <Navigation />
+    <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
@@ -64,7 +61,7 @@ const AppRoutes = () => {
           } 
         />
       </Routes>
-    </>
+    </Layout>
   );
 };
 
