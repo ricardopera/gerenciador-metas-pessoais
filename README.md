@@ -1,6 +1,37 @@
 # Gerenciador de Metas Pessoais
 
-Este projeto é um aplicativo de gerenciamento de metas pessoais desenvolvido utilizando a stack MERN (MongoDB, Express, React e Node.js). O objetivo do aplicativo é permitir que os usuários criem, visualizem e gerenciem suas metas de forma eficiente.
+Este projeto é um aplicativo de gerenciamento de metas pessoais desenvolvido utilizando a stack MERN (MongoDB, Express, React e Node.js) com interface visual moderna implementada em Material UI. O objetivo do aplicativo é permitir que os usuários criem, visualizem e gerenciem suas metas de forma eficiente em um ambiente visualmente agradável e responsivo.
+
+## Características Principais
+
+- **Interface Moderna**: Design moderno e responsivo implementado com Material UI 7
+- **Autenticação de Usuários**: Sistema completo de registro e login
+- **Gestão de Metas**: Criação, edição e exclusão de metas pessoais
+- **Categorização**: Organização de metas por prioridade (Alta, Média, Baixa)
+- **Prazos**: Definição de datas limite para conclusão de metas
+- **Filtros e Ordenação**: Visualize suas metas filtradas por status e ordenadas por diferentes critérios
+- **Dashboard**: Acompanhe seu progresso através de um dashboard visual
+- **Design Responsivo**: Experiência otimizada em dispositivos móveis, tablets e desktops
+- **Animações Suaves**: Transições e efeitos visuais implementados com Framer Motion
+
+## Tecnologias Utilizadas
+
+### Frontend (Cliente)
+- React 18
+- Material UI 7
+- Framer Motion (para animações)
+- React Router (para navegação)
+- Context API (para gerenciamento de estado)
+- Axios (para requisições HTTP)
+- Date-fns (para manipulação de datas)
+
+### Backend (Servidor)
+- Node.js
+- Express
+- MongoDB (com Mongoose)
+- JWT (para autenticação)
+- Bcrypt (para criptografia de senhas)
+- Jest (para testes)
 
 ## Estrutura do Projeto
 
@@ -8,26 +39,23 @@ O projeto é dividido em duas partes principais: o cliente (frontend) e o servid
 
 ### Cliente (Frontend)
 
-- **`client/public/index.html`**: Ponto de entrada da aplicação React.
-- **`client/public/manifest.json`**: Configurações do manifesto da aplicação.
-- **`client/src/components/Dashboard.jsx`**: Componente que exibe uma visão geral das metas do usuário.
-- **`client/src/components/Goals/GoalForm.jsx`**: Componente para criar novas metas.
-- **`client/src/components/Goals/GoalItem.jsx`**: Representa uma única meta na lista.
-- **`client/src/components/Goals/GoalList.jsx`**: Renderiza uma lista de metas.
-- **`client/src/components/Layout/Header.jsx`**: Exibe o cabeçalho da aplicação.
-- **`client/src/components/Layout/Navigation.jsx`**: Fornece links de navegação na aplicação.
-- **`client/src/components/Auth/Login.jsx`**: Permite ao usuário fazer login.
-- **`client/src/components/Auth/Register.jsx`**: Permite ao usuário se registrar.
-- **`client/src/pages/HomePage.jsx`**: Representa a página inicial da aplicação.
-- **`client/src/pages/GoalsPage.jsx`**: Exibe as metas do usuário.
-- **`client/src/pages/ProfilePage.jsx`**: Exibe as informações do perfil do usuário.
+- **`client/src/App.jsx`**: Configuração do tema e providers da aplicação React.
+- **`client/src/AppRoutes.jsx`**: Gerenciamento de rotas com react-router.
+- **`client/src/components/Layout/Layout.jsx`**: Layout principal da aplicação com header, navegação e footer.
+- **`client/src/components/Layout/Header.jsx`**: Cabeçalho responsivo com navegação móvel.
+- **`client/src/components/Layout/Navigation.jsx`**: Navegação em formato de abas adaptada para dispositivos.
+- **`client/src/components/Dashboard.jsx`**: Visão geral das metas do usuário.
+- **`client/src/components/Goals/GoalForm.jsx`**: Formulário interativo para criar e editar metas.
+- **`client/src/components/Goals/GoalItem.jsx`**: Cartão de meta com indicadores visuais de prioridade e prazo.
+- **`client/src/components/Goals/GoalList.jsx`**: Lista de metas com filtros e ordenação.
+- **`client/src/components/Auth/Login.jsx`**: Tela de login moderna com validações.
+- **`client/src/components/Auth/Register.jsx`**: Formulário de registro com feedback visual.
+- **`client/src/pages/HomePage.jsx`**: Página inicial com apresentação visual e animações.
+- **`client/src/pages/GoalsPage.jsx`**: Exibe as metas do usuário e o formulário de adição.
+- **`client/src/pages/ProfilePage.jsx`**: Gerenciamento de informações do usuário.
 - **`client/src/context/AuthContext.jsx`**: Gerencia o estado de autenticação do usuário.
 - **`client/src/context/GoalContext.jsx`**: Gerencia o estado das metas do usuário.
 - **`client/src/services/api.js`**: Funções para interagir com a API do servidor.
-- **`client/src/App.jsx`**: Componente principal da aplicação.
-- **`client/src/index.js`**: Ponto de entrada da aplicação React.
-- **`client/package.json`**: Configuração do npm para o cliente.
-- **`client/README.md`**: Documentação do cliente.
 
 ### Servidor (Backend)
 
@@ -40,39 +68,78 @@ O projeto é dividido em duas partes principais: o cliente (frontend) e o servid
 - **`server/routes/goalRoutes.js`**: Rotas relacionadas às metas.
 - **`server/routes/userRoutes.js`**: Rotas relacionadas aos usuários.
 - **`server/server.js`**: Ponto de entrada do servidor.
-- **`server/package.json`**: Configuração do npm para o servidor.
+- **`server/tests/`**: Testes automatizados para a aplicação.
 
-### Configuração do Projeto
+## Configuração do Projeto
 
 Para configurar o projeto, siga os passos abaixo:
 
-1. Clone o repositório.
-2. Navegue até a pasta do cliente e instale as dependências:
+1. Clone o repositório:
    ```
-   cd client
-   npm install
+   git clone https://github.com/seu-usuario/gerenciador-metas-pessoais.git
+   cd gerenciador-metas-pessoais
    ```
-3. Navegue até a pasta do servidor e instale as dependências:
-   ```
-   cd server
-   npm install
-   ```
-4. Configure o banco de dados no arquivo `server/config/db.js`.
-5. Inicie o servidor:
+
+2. Navegue até a pasta do servidor e instale as dependências:
    ```
    cd server
-   node server.js
+   npm install
    ```
-6. Inicie o cliente:
+
+3. Configure as variáveis de ambiente no servidor:
+   - Crie um arquivo `.env` na pasta do servidor com:
    ```
-   cd client
+   PORT=5000
+   MONGO_URI=sua_uri_do_mongodb
+   JWT_SECRET=seu_segredo_jwt
+   ```
+
+4. Inicie o servidor:
+   ```
    npm start
    ```
 
+5. Em outro terminal, navegue até a pasta do cliente e instale as dependências:
+   ```
+   cd client
+   npm install
+   ```
+
+6. Inicie o cliente:
+   ```
+   npm start
+   ```
+
+7. Acesse a aplicação em [http://localhost:3000](http://localhost:3000)
+
+## Screenshots
+
+(Adicionar screenshots da aplicação)
+
+## Recursos Futuros
+
+- Notificações para metas próximas da data limite
+- Categorização avançada com tags personalizadas
+- Compartilhamento de metas com outros usuários
+- Temas de cores personalizáveis
+- Modo escuro
+- Calendário para visualização de metas
+- Versão para dispositivos móveis (React Native)
+
 ## Contribuição
 
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull requests.
+Contribuições são bem-vindas! Para contribuir:
+
+1. Faça um fork do repositório
+2. Crie um branch para sua feature: `git checkout -b feature/nova-feature`
+3. Commit suas mudanças: `git commit -m 'Adicionando nova feature'`
+4. Push para o branch: `git push origin feature/nova-feature`
+5. Abra um Pull Request
 
 ## Licença
 
 Este projeto está licenciado sob a MIT License.
+
+## Autor
+
+Ricardo (ricardopera) - [GitHub](https://github.com/ricardopera)
