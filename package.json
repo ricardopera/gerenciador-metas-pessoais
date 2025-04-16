@@ -1,24 +1,27 @@
 {
   "name": "gerenciador-metas-pessoais",
   "version": "1.0.0",
-  "description": "Aplicativo de gerenciamento de metas pessoais utilizando a stack MERN.",
-  "main": "server/server.js",
+  "description": "Aplicativo de Gerenciamento de Metas Pessoais",
   "scripts": {
-    "start": "node server/server.js",
-    "client": "npm start --prefix client",
-    "server": "nodemon server/server.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "start": "cd server && node startup.js",
+    "server": "cd server && nodemon server.js",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "install-server": "cd server && npm install",
+    "install-all": "npm install; npm run install-server; npm run install-client",
+    "dev": "cd server && nodemon server.js",
+    "test": "cd server && npm test"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   },
   "keywords": [
-    "MERN",
-    "goals",
-    "personal management"
+    "metas",
+    "gerenciamento",
+    "objetivos",
+    "pessoal"
   ],
-  "author": "Seu Nome",
-  "license": "MIT",
-  "dependencies": {
-    "concurrently": "^6.0.0",
-    "nodemon": "^2.0.0"
-  },
-  "devDependencies": {}
+  "author": "",
+  "license": "MIT"
 }
